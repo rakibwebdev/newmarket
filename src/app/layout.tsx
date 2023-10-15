@@ -1,8 +1,12 @@
+import Header from '@/component/header/header'
+import './bootstrap.css'
+import './fonts.css'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Footer from '@/component/footer/footer'
+import { StrictMode } from 'react'
+import { Provider } from 'react-redux'
+import { store } from '@/redux/store'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,8 +19,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    // <StrictMode>
+    //   <Provider store={store}>
+          <html lang="en">
+            <body className="page-wrapper">
+              <Header />
+              {children}
+              <Footer />
+            </body>
+          </html>
+    //   </Provider>
+    // </StrictMode>
   )
 }
